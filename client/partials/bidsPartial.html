@@ -1,0 +1,60 @@
+<!-- blank partial -->
+<div>
+	<h3>Here are the available bids:</h3>
+	<button ng-click="logout();">Logout.</button>
+	currentUser ID is: {{currentUserId}} and currentUsername is: {{currentUsername}}
+
+	<div>
+		<h3>Current Available products:</h3><hr>
+		<div>
+			<h4>Product1</h4>
+			<img src="/static/images/shoes.jpg" width="100" style="display: inline-block;"> 
+			<h6>Bid on this:</h6>
+			<div ng-if="bidError1" style="color:red;">BID MUST BE HIGHER THAN PREVIOUS LARGEST BID.</div>
+			<form>
+				$<input type="number" ng-model="userBid1" min="0">
+				<button ng-click="executeBid(1, userBid1);">Submit bid for product 1</button>
+			</form>
+			<h6>Current Bids:</h6>
+			<ul>
+				<li ng-repeat ="bid in bidList1 | orderBy: '-amount' | filter : searchList1">{{bid.madeByUsername}} bid ${{bid.amount}}.</li>
+			</ul>
+			Search by username: <input type="text" ng-model="searchList1">
+		</div>
+		<hr>
+		<div>
+			<h4>Product2</h4>
+			<img src="/static/images/shirt.jpg" width="100" style="display: inline-block;"> 
+			<h6>Bid on this:</h6>
+			<div ng-if="bidError2" style="color:red;">BID MUST BE HIGHER THAN PREVIOUS LARGEST BID.</div>
+			<form>
+				$<input type="number" ng-model="userBid2" min="0">
+				<button ng-click="executeBid(2, userBid2);">Submit bid for product 2</button>
+			</form>
+			<h6>Current Bids:</h6>
+			<ul>
+				<li ng-repeat ="bid in bidList2 | orderBy: '-amount' | filter : searchList2">{{bid.madeByUsername}} bid ${{bid.amount}}.</li>
+			</ul>
+			Search by username: <input type="text" ng-model="searchList2">
+		</div>
+		<hr>
+		<div>
+			<h4>Product3</h4>
+			<img src="/static/images/shorts.jpg" width="100" style="display: inline-block;"> 
+			<h6>Bid on this:</h6>
+			<div ng-if="bidError3" style="color:red;">BID MUST BE HIGHER THAN PREVIOUS LARGEST BID.</div>
+			<form>
+				$<input type="number" ng-model="userBid3" min="0">
+				<button ng-click="executeBid(3, userBid3);">Submit bid for product 3</button>
+			</form>
+			<h6>Current Bids:</h6>
+			<ul>
+				<li ng-repeat ="bid in bidList3 | orderBy: '-amount' | filter : searchList3">{{bid.madeByUsername}} bid ${{bid.amount}}.</li>
+			</ul>
+			Search by username: <input type="text" ng-model="searchList3">
+		</div>
+		<hr>
+	</div>
+	<div ng-if="prohibitEnding" style="color:red;">All items must have at least one active bid before bidding can finish.</div>
+	<button ng-click="endBids();">END BIDS!</button>
+</div>

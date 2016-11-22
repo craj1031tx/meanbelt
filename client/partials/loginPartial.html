@@ -1,0 +1,11 @@
+<!-- login partial -->
+<div>
+	<a href="/#/bids">GO TO BIDS</a>
+	<h3>Login.</h3>
+	<div><h2 ng-repeat="error in listOfErrors" style="color:red;">{{error}}</h2></div>
+	<form>
+		Username:<input type="text" ng-model="loginInfo.username"><br>
+		<button ng-click="login();">Enter MEANbids!</button>
+	</form>
+	
+</div> 
